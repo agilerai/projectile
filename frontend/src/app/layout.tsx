@@ -3,6 +3,7 @@ import "./globals.css";
 import { inter } from "@/lib/fonts";
 import { ClerkProvider } from "@clerk/nextjs";
 
+
 export const metadata: Metadata = {
   title: "Projectile"
 };

@@ -66,7 +66,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
+  --sidebar: #ffffff;
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -117,4 +117,27 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Force Clerk OrganizationSwitcher to full width in sidebar */
+.cl-organizationSwitcher {
+  width: 100% !important;
+}
+
+.cl-organizationSwitcher .cl-organizationSwitcherTrigger {
+  width: 100% !important;
+  justify-content: flex-start !important;
+  display: flex !important;
+}
+
+.cl-organizationSwitcher .cl-organizationPreview {
+  width: 100% !important;
+  justify-content: flex-start !important;
+  display: flex !important;
+}
+
+.cl-organizationSwitcher .cl-organizationPreviewTextContainer {
+  flex: 1 !important;
+  text-align: left !important;
+  min-width: 0 !important;
 }
