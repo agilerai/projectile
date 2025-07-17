@@ -1,0 +1,6 @@
+[submodule "juncture-core-server"]
+	path = juncture-core-server
+	url = https://github.com/juncture-dev/juncture-core-server
+[submodule "juncture-core-frontend"]
+	path = juncture-core-frontend
+	url = https://github.com/juncture-dev/juncture-core-frontend

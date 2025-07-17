@@ -26,10 +26,10 @@ const sidebarItems = [
         href: "/",
     },
     {
-        label: "Projects",
+        label: "Integrations",
         icon: FolderIcon,
-        href: "/projects",
-    }
+        href: "/integrations",
+    },
 ]
 
 export default function AppSidebar() {
