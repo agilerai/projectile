@@ -17,14 +17,8 @@ export default function IntegrationCard({ name, description, image, exists, isIn
 
     async function handleClick() {
         if (!exists || isInvalid) {
-            console.log(orgId);
             // redirect to the integration page
-            const url = await junctureFrontend.getOAuthAuthorizationUrl({
-                provider: "jira",
-                externalId: orgId
-            });
-            console.log(url);
-            // window.location.href = url.authorizationUri;
+            await junctureFrontend.completeIntegration("jira", orgId, "nextjs");
         }
     }
 
