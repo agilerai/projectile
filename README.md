@@ -9,3 +9,9 @@ NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=/
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<from dashboard>
 CLERK_SECRET_KEY=<from dashboard>
 ```
+
+# celery
+Make your .env file like this:
+```
+UPSTASH_REDIS_REST_URL_FULL=""
+```
