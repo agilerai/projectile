@@ -2,6 +2,8 @@
 
 import { Button } from "../ui/button";
 import { useState } from "react";
+import { getUploadUrl } from "@/actions/get-upload-url";
+import { supabase } from "@/lib/supabase/client";
 
 const supportedFormats = [
     "video/mp4",
@@ -22,7 +24,7 @@ export default function MeetingUploadForm() {
     const [file, setFile] = useState<File | null>(null);
     const [isUploading, setIsUploading] = useState(false);
 
-    const handleUpload = () => {
+    const handleUpload = async () => {
         if (isUploading) {
             return;
         }
@@ -32,8 +34,34 @@ export default function MeetingUploadForm() {
 
         setIsUploading(true);
 
-        const formData = new FormData();
-        formData.append("file", file);
+
+        const res = await getUploadUrl(file.name.split('.').pop() || '');
+
+        if ('error' in res) {
+            console.error(res.error);
+            return;
+        }
+
+        const { url, token, id } = res;
+
+        // i don't think supabase supports resumable uploads with signed urls
+        const { data, error: uploadError } = await supabase.storage.from('meetings').uploadToSignedUrl(
+            `${id}.${file.name.split('.').pop()}`,
+            token,
+            file,
+            {
+                upsert: true,
+                contentType: file.type,
+            }
+        );
+
+        if (uploadError) {
+            console.error(uploadError);
+            return;
+        }
+
+        const path = data?.path;
+        
 
         setIsUploading(false);
         
