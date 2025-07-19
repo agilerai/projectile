@@ -3,6 +3,7 @@
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { getUploadUrl } from "@/actions/get-upload-url";
+import { processRecording } from "@/actions/process-recording";
 import { supabase } from "@/lib/supabase/client";
 
 const supportedFormats = [
@@ -35,34 +36,36 @@ export default function MeetingUploadForm() {
         setIsUploading(true);
 
 
-        const res = await getUploadUrl(file.name.split('.').pop() || '');
+        // const res = await getUploadUrl(file.name.split('.').pop() || '');
 
-        if ('error' in res) {
-            console.error(res.error);
-            return;
-        }
+        // if ('error' in res) {
+        //     console.error(res.error);
+        //     return;
+        // }
 
-        const { url, token, id } = res;
+        // const { url, token, id } = res;
 
-        // i don't think supabase supports resumable uploads with signed urls
-        const { data, error: uploadError } = await supabase.storage.from('meetings').uploadToSignedUrl(
-            `${id}.${file.name.split('.').pop()}`,
-            token,
-            file,
-            {
-                upsert: true,
-                contentType: file.type,
-            }
-        );
+        // // i don't think supabase supports resumable uploads with signed urls
+        // const { data, error: uploadError } = await supabase.storage.from('meetings').uploadToSignedUrl(
+        //     `${id}.${file.name.split('.').pop()}`,
+        //     token,
+        //     file,
+        //     {
+        //         upsert: true,
+        //         contentType: file.type,
+        //     }
+        // );
 
-        if (uploadError) {
-            console.error(uploadError);
-            return;
-        }
+        // if (uploadError) {
+        //     console.error(uploadError);
+        //     return;
+        // }
 
-        const path = data?.path;
+        // const path = data?.path;
+
+        const result = await processRecording(file.name);
+        console.log(result);
         
-
         setIsUploading(false);
         
     }
