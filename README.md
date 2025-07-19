@@ -14,7 +14,9 @@ NEXT_PUBLIC_JUNCTURE_API_URL=<http://localhost:8000>
 JUNCTURE_SECRET_KEY=<secret_key>
 
 # SUPABASE
+NEXT_PUBLIC_SUPABASE_URL=<get from supabase dashboard>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<get from supabase dashboard>
+SUPABASE_SERVICE_KEY=<get from supabase dashboard>
 ```
 
 # celery
