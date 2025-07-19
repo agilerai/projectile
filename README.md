@@ -17,12 +17,20 @@ JUNCTURE_SECRET_KEY=<secret_key>
 NEXT_PUBLIC_SUPABASE_URL=<get from supabase dashboard>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<get from supabase dashboard>
 SUPABASE_SERVICE_KEY=<get from supabase dashboard>
+
+# UPSTASH
+UPSTASH_REDIS_HOST=<get url from upstash. do not include hte https://, just start from blank.blank.blank>
+UPSTASH_REDIS_PORT=6379
+UPSTASH_REDIS_PASSWORD=<api key/token from upstash>
 ```
 
 # celery
 Make your .env file like this:
 ```
-UPSTASH_REDIS_HOST=<get url from upstash>
+UPSTASH_REDIS_HOST=<get url from upstash. do not include hte https://, just start from blank.blank.blank>
 UPSTASH_REDIS_PORT=6379
 UPSTASH_REDIS_PASSWORD=<api key/token from upstash>
+
+SUPABASE_URL=
+SUPABASE_SERVICE_KEY=
 ```
