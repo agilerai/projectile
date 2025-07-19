@@ -8,10 +8,19 @@ NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL=/
 NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=/
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<from dashboard>
 CLERK_SECRET_KEY=<from dashboard>
+
+# JUNCTURE
+NEXT_PUBLIC_JUNCTURE_API_URL=<http://localhost:8000>
+JUNCTURE_SECRET_KEY=<secret_key>
+
+# SUPABASE
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<get from supabase dashboard>
 ```
 
 # celery
 Make your .env file like this:
 ```
-UPSTASH_REDIS_REST_URL_FULL=""
+UPSTASH_REDIS_HOST=<get url from upstash>
+UPSTASH_REDIS_PORT=6379
+UPSTASH_REDIS_PASSWORD=<api key/token from upstash>
 ```
